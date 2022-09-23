@@ -6,15 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+    <h1>porcentagem</h1>
+    <p>
+        Digite um valor: <input type="number" name="txn1" id="txn1" placeholder="Maior que 0">
+    </p>
+    <p>
+
+        Quantos %: <input type="number" name="txn2" id="txn2" placeholder="0 a 100"  min="0" max="100">
+        <input type="button" value="calcular" onclick="porc()">
+    </p>
     
+    <div id="res">resultado</div>
+
     <script>
-        var n1 = Number(prompt('Escolha um número: '))
-        var n2 = Number(prompt('Escolha outro numero: '))
+        function porc() {
+            let tn1 = document.querySelector('input#txn1')
+            let tn2 = document.querySelector('input#txn2')
+            let res = document.querySelector('div#res')
 
-        var s = n1 + n2
+            let n1 = Number(tn1.value)
+            let n2= Number(tn2.value / 100)
+            let p = n1 *n2
 
-        alert(s)
+            if (0 < tn1 && 0<=tn2<100) {
+                res.innerHTML = `${n2}% de ${n1} é = ${p}`
+            } else {
+                res.innerHTML += `Confira os valores`
+            }
+            
+        }
     </script>
+
 </body>
 </html>
